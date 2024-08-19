@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "Title": "Apple MacBook Pro 17",
+      "Desc": "A laptop with excellent performance and sleek design.",
+      "Image": "https://th.bing.com/th/id/OIP.z0ATztHK_koH9KGMP3A_PAHaE8?rs=1&pid=ImgDetMain",
+      "Price": 2999,
+      "isShow": true
+    },
+    {
+      "id": 2,
+      "Title": "Samsung Galaxy S21",
+      "Desc": "A smartphone with high-end features and performance.",
+      "Image": "https://th.bing.com/th/id/OIP.lmY2jOUTZkcZoCoscDPkngHaHA?rs=1&pid=ImgDetMain",
+      "Price": 999,
+      "isShow": true
+    },
+    {
+      "id": 3,
+      "Title": "Apple MacBook Pro 18",
+      "Desc": "A laptop with excellent performance and sleek design.",
+      "Image": "https://th.bing.com/th/id/OIP.z0ATztHK_koH9KGMP3A_PAHaE8?rs=1&pid=ImgDetMain",
+      "Price": 2999,
+      "isShow": true
+    },
+    {
+      "id": 4,
+      "Title": "Samsung Galaxy S22",
+      "Desc": "A smartphone with high-end features and performance.",
+      "Image": "https://th.bing.com/th/id/OIP.lmY2jOUTZkcZoCoscDPkngHaHA?rs=1&pid=ImgDetMain",
+      "Price": 999,
+      "isShow": true
+    }
+  ]
+}

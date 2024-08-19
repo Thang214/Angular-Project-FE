@@ -1,0 +1,89 @@
+
+
+  <div class="relative overflow-x-auto my-5">
+    <h1 class="text-4xl font-bold text-center my-5 border border-gray-800 dark:bg-gray-700 text-white">Danh sách sản phẩm</h1>
+    <div class="flex flex-col p-6">
+      <div class="flex mb-2">
+        <label class="w-1/6">Filter:</label>
+        <input type="text" class="w-1/4 bg-[white] border border-black " [(ngModel)]='filterValue' (input)='filter()'>
+        <div class="w-7/12"></div>
+      </div>
+      <div class="flex mb-4">
+        <h2 class="w-full">Filter by: </h2>
+      </div>
+    </div>
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center">
+          <tr>
+            <th scope="col" class="px-6 py-3">
+              Id
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Image
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Title
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Desc
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Category
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Price
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Show
+            </th>
+            <th scope="col" class="px-6 py-3">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-b dark:bg-gray-300 dark:border-gray-700 text-center"
+            *ngFor="let product of products; index as item">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">
+              {{item + 1}}
+            </th>
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">
+              <img src={{product.image}} alt="" width="100px" height="100px">
+
+            </th>
+            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">
+              {{product.title}}
+            </td>
+            <td class="px-6 py-4 dark:text-black">
+              {{product.desc}}
+            </td>
+            <td class="px-6 py-4 dark:text-black">
+              {{product.category}}
+            </td>
+            <td class="px-6 py-4 dark:text-black">
+              {{product.price}}
+            </td>
+            <td class="px-6 py-4 dark:text-black">
+              {{product.isShow ? 'True' : 'False'}}
+            </td>
+            <td class="px-6 py-4">
+              <a class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-red-600/10 mr-2"
+                [routerLink]="['/products/', product._id]">View</a>
+              <button
+                class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10 mr-2"
+                (click)="onHandleRemove(product._id!)">Delete</button>
+              <a class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-red-600/10"
+                [routerLink]="['/admin/edit', product._id]">Edit</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- ... -->
+      <div class="pagination my-5 ml-52">
+        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+        <span>Page {{ currentPage }} of {{ totalPages }}</span>
+        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+      </div>
+      <!-- ... -->
+    </div>
+    <!--  -->

@@ -1,0 +1,78 @@
+<div class="relative overflow-x-auto my-5">
+  <h1 class="text-4xl font-bold text-center my-5 border border-gray-800 dark:bg-gray-700 text-white">Bài 4</h1>
+  <div class="flex flex-col p-6">
+    <div class="flex mb-2">
+      <label class="w-1/6">Filter:</label>
+      <input type="text" class="w-1/4 bg-[white] border border-black " [(ngModel)]='filterValue' (input)='filter()'>
+      <div class="w-7/12"></div>
+    </div>
+    <div class="flex mb-4">
+      <h2 class="w-full">Filter by: </h2>
+    </div>
+  </div>
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr class="text-white">
+        <th scope="col" class="px-6 py-3">
+          Id
+        </th>
+        <th scope="col" class="px-6 py-3" (click)="toggleImage()">
+          <button class="bg-black">Image</button>
+
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Product
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Code
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Avaliable
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Price
+        </th>
+        <th scope="col" class="px-6 py-3">
+          5 Start Rating
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Thao tac
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white border-b text-black" *ngFor="let product of products; index as item">
+        <td class="px-6 py-4">{{item + 1}}</td>
+        <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap" *ngIf="showImage">
+          <img src={{product?.imageUrl}} alt="" width="100" height="100">
+        </th>
+        <td class="px-6 py-4">
+          {{product?.productName}}
+        </td>
+        <td class="px-6 py-4">
+          {{product?.productCode}}
+        </td>
+        <td class="px-6 py-4">
+          {{product?.releaseDate}}
+        </td>
+        <td class="px-6 py-4">
+          {{product?.price}}
+        </td>
+        <td class="px-6 py-4">
+          <div class="crop" [style.width.px]="product.starRating*90/5" title="rating">
+            <div style="width: 90px">
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </div>
+          </div>
+        </td>
+        <td class="px-6 py-4">
+          <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" (click)="removeItem(product.id!)">Xoa'</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,82 @@
+<div class="flex h-screen">
+  <form (ngSubmit)="onSubmit()" [formGroup]="productForm" class="flex-1 p-2">
+    <h1 class="text-2xl font-bold mb-4">Edit Product</h1>
+
+    <div class="mb-4">
+      <label class="block text-gray-700 font-bold mb-2"> Tittle </label>
+      <input  type="text" formControlName="title"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        required />
+      <div *ngIf="
+          productForm['controls']['title'].dirty &&
+          productForm['controls']['title'].errors
+        ">
+        <div *ngIf="productForm['controls']['title'].errors['required']" class="text-red-500">
+          Bắt buộc nhập
+        </div>
+      </div>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 font-bold mb-2"> Price </label>
+      <input  type="number" formControlName="price"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        required />
+      <div *ngIf="productForm['controls']['price'].dirty && productForm['controls']['price'].errors">
+        <div *ngIf="productForm['controls']['price'].errors['required']" class="text-red-500">
+          Bắt buộc nhập
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700 font-bold mb-2"> Image </label>
+      <input type="text"formControlName="image"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        required />
+      <div *ngIf="
+          productForm['controls']['image'].dirty &&
+          productForm['controls']['image'].errors
+        ">
+        <div *ngIf="productForm['controls']['image'].errors['required']" class="text-red-500">
+          Bắt buộc nhập
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700 font-bold mb-2"> Category </label>
+      <select formControlName="category"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        required>
+        <option [ngValue]="category.name" *ngFor="let category of categories">{{ category.name }}</option>
+      </select>
+    </div>
+
+
+
+    <div class="mb-4">
+      <label class="block text-gray-700 font-bold mb-2"> Description </label>
+      <textarea formControlName="desc"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        required></textarea>
+      <div *ngIf="
+          productForm['controls']['desc'].dirty &&
+          productForm['controls']['desc'].errors
+        ">
+        <div *ngIf="productForm['controls']['desc'].errors['required']" class="text-red-500">
+          Bắt buộc nhập
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4 flex items-center">
+      <input type="checkbox"  formControlName="isShow"
+        class="mr-2 leading-tight focus:outline-none focus:shadow-outline" />
+      <label class="block text-gray-700 font-bold"> Hiển thị sản phẩm </label>
+    </div>
+
+    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+      Edit
+    </button>
+  </form>
+</div>
